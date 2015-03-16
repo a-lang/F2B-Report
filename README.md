@@ -15,7 +15,7 @@ How to use it?
  `git clone https://github.com/a-lang/F2B-Report.git` 
 3. Using the git to monitor a few important system files such as /etc/passwd, /etc/group, etc.  
  ```
- cd /
+ cd /  
  git init
  git add /etc/passwd
  git add /etc/group
