@@ -10,7 +10,7 @@ Requirement
 How to use it?
 ---------------
 1. Install the following packages.
- `yum install git sysstat`
+  `yum install git sysstat`
 2. Clone it to the computer
  `git clone https://github.com/a-lang/F2B-Report.git` 
 3. Using the git to monitor a few important system files such as /etc/passwd, /etc/group, etc.
