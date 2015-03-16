@@ -9,11 +9,11 @@ Requirement
 
 How to use it?
 ---------------
-1. Install the following packages.
+1. Install the following packages.  
  `yum install git sysstat`
-2. Clone it to the computer
+2. Clone it to the computer  
  `git clone https://github.com/a-lang/F2B-Report.git` 
-3. Using the git to monitor a few important system files such as /etc/passwd, /etc/group, etc.
+3. Using the git to monitor a few important system files such as /etc/passwd, /etc/group, etc.  
  ```
  cd /
  git init
@@ -30,7 +30,7 @@ How to use it?
  git add /etc/host*
  git add /etc/init.d/ 
  ```
-4. 
+4.   
  
 Hoping you enjoy it !
 
