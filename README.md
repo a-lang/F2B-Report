@@ -13,7 +13,8 @@ How to use it?
  `yum install git sysstat`
 2. Clone it to the computer  
  `git clone https://github.com/a-lang/F2B-Report.git` 
-3. Using the git to monitor a few important system files such as /etc/passwd, /etc/group, etc.  
+3. Using the git to monitor a few important system files such as /etc/passwd, /etc/group, etc.
+ - The list of the files I added:
  ```
  cd /  
  git init
