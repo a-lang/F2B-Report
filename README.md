@@ -32,7 +32,15 @@ How to use it?
  git add /etc/init.d/ 
  git commit -m "whatever message" 
  ```
-4.   
- 
+4. Copy the directory html to your web directory such as /var/www/html  
+ `cp F2B-Report/html /var/www/html/f2b_report`
+5. Copy the file gen.sh to any directory other than the web directory.  
+ ```
+ mkdir /var/www/scripts
+ cp F2B-Report/gen.sh /var/www/scripts 
+ ```
+6. Create a cron job to execute the file gen.sh periodically.  
+ `crontab -e`
+ ``
 Hoping you enjoy it !
 
