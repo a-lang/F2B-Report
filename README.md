@@ -6,6 +6,7 @@ Requirement
 * CentOS 5.x
 * Fail2Ban Installed
 * Web Server engine such as Apache or something like that
+* No need of Database
 
 How to use it?
 ---------------
