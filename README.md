@@ -35,13 +35,19 @@ How to use it?
 4. Copy the directory html to your web directory such as /var/www/html  
  `cp F2B-Report/html /var/www/html/f2b_report`
  
-5. Copy the file gen.sh to any directory other than the web directory.  
+5. Copy the file gen.sh to any directory other than the web directory.
  - In this case, I created a directory /var/www/scripts
  ```
  mkdir /var/www/scripts
  cp F2B-Report/gen.sh /var/www/scripts 
  ```
-6. Create a cron job to execute the file gen.sh periodically.  
+ - Modify the gen.sh as you needed
+ ```
+ F2BLOG_ALL="/var/log/fail2ban*"
+ F2BLOG_LATEST="/var/log/fail2ban.log"
+ OUTDIR="/var/www/html/f2b_report"
+ ```
+6. Create a cron job to execute the file gen.sh periodically.
  - The gen.sh would generate 
  ```
  crontab -e
