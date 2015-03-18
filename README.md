@@ -30,6 +30,7 @@ How to use it?
  git add /etc/yum.repos.d/
  git add /etc/host*
  git add /etc/init.d/ 
+ git commit -m "whatever message" 
  ```
 4.   
  
