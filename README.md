@@ -34,7 +34,6 @@ How to use it?
  ```
 4. Copy the directory html to your web directory such as /var/www/html  
  `cp F2B-Report/html /var/www/html/f2b_report`
- 
 5. Copy the file gen.sh to any directory other than the web directory.
  - In this case, I created a directory /var/www/scripts
  ```
