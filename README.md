@@ -59,5 +59,19 @@ How to use it?
  
  */5 * * * * bash /var/www/scripts/gen.sh > /dev/null 2>&1
  ```
+
+Integration with PBXinFlash (Optional)
+--------------------------------------
+Editing the menu of PBXinFlash
+```
+cp F2B-Report/ico_Fail2ban.png /var/www/html/welcome/
+vi /var/www/html/welcome/.htindex.cfg
+```
+Inserting the line below
+```
+2,f2b_report,./f2b_report/,Fail2Ban Report,ico_Fail2ban.png
+```
+![image](https://raw.githubusercontent.com/a-lang/F2B-Report/master/Screenshot2.png)
+
 Hoping you enjoy it !
 
