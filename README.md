@@ -62,12 +62,12 @@ How to use it?
 
 Integration with PBXinFlash (Optional)
 --------------------------------------
-Editing the menu of PBXinFlash
+- Editing the menu of PBXinFlash
 ```
 cp F2B-Report/ico_Fail2ban.png /var/www/html/welcome/
 vi /var/www/html/welcome/.htindex.cfg
 ```
-Inserting the line below
+- Inserting the line below
 ```
 2,f2b_report,./f2b_report/,Fail2Ban Report,ico_Fail2ban.png
 ```
