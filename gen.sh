@@ -80,11 +80,17 @@ do
 
   # Fail2Ban Report - Top 10 Latest Attacks today
   # $('#F2B_10T_Attack_Table')
-  out=$out"\"F2B_10T_Attack\":"`grep "Ban " $F2BLOG_LATEST | awk -F[\ \:] '{print $10,$8}' | sort | uniq -c | sort -n | tail -10 | sort -rn | awk 'BEGIN {printf("[")} {printf("[%s, \"%s\", \"%s\"],", $1, $2, $3)} END {printf("]")}' | sed "s/,\]/\]/"`
+  # Showing up the country
+  out=$out"\"F2B_10T_Attack\":"`grep "Ban " $F2BLOG_LATEST |  awk -F[\ \:] '{print $10,$8}' | sort | uniq -c | sort -n | tail -10 | sort -rn | while read c ip svc;do \
+  country=$(/usr/bin/geoiplookup $ip | grep "Country" | awk '{print $5}'); \
+  echo $c $ip $country $svc; done | awk 'BEGIN {printf("[")} {printf("[%s, \"%s\", \"%s\", \"%s\"],", $1, $2, $3, $4)} END {printf("]")}' | sed "s/,\]/\]/"`
   out=$out","
 
   # Fail2Ban Report - Top 10 Banned IP addresses recently
-  out=$out"\"F2B_10T_IP\":"`grep "Ban " $F2BLOG_ALL | awk -F[\ \:] '{print $11,$9}' | sort | uniq -c | sort -n | tail -10 | sort -nr | awk 'BEGIN {printf("[")} {printf("[%s, \"%s\", \"%s\"],", $1, $2, $3)} END {printf("]")}' | sed "s/,\]/\]/"`
+  # Showing up the country
+  out=$out"\"F2B_10T_IP\":"`grep "Ban " $F2BLOG_ALL |  awk -F[\ \:] '{print $11,$9}' | sort | uniq -c | sort -n | tail -10 | sort -rn | while read c ip svc;do \
+  country=$(/usr/bin/geoiplookup $ip | grep "Country" | awk '{print $5}'); \
+  echo $c $ip $country $svc; done | awk 'BEGIN {printf("[")} {printf("[%s, \"%s\", \"%s\", \"%s\"],", $1, $2, $3, $4)} END {printf("]")}' | sed "s/,\]/\]/"`
   out=$out","
 
   # Fail2Ban Report - Top 10 Banned subnet recently
@@ -92,7 +98,10 @@ do
   out=$out","
 
   # Fail2Ban Report - Being attacked service by day
-  out=$out"\"F2B_SVC_DAY\":"`grep "Ban " $F2BLOG_ALL | awk -F'[:,[:space:]]+' '{print $9,$2}' | sort | uniq -c | awk 'BEGIN {printf("[")} {printf("[%s, \"%s\", \"%s\"],", $1, $2, $3)} END {printf("]")}' | sed "s/,\]/\]/"`
+  #out=$out"\"F2B_SVC_DAY\":"`grep "Ban " $F2BLOG_ALL | awk -F'[:,[:space:]]+' '{print $9,$2}' | sort | uniq -c | awk 'BEGIN {printf("[")} {printf("[%s, \"%s\", \"%s\"],", $1, $2, $3)} END {printf("]")}' | sed "s/,\]/\]/"`
+  tmp1=`grep "Ban " $F2BLOG_ALL | awk -F'[:,[:space:]]+' '{print $9,$2}' | sort | uniq -c | sed -n '/ssh/p' | head -5`
+  tmp2=`grep "Ban " $F2BLOG_ALL | awk -F'[:,[:space:]]+' '{print $9,$2}' | sort | uniq -c | sed -n '/asterisk/p' | head -5`
+  out=$out"\"F2B_SVC_DAY\":"`echo -e "$tmp1\n$tmp2" | awk 'BEGIN {printf("[")} {printf("[%s, \"%s\", \"%s\"],", $1, $2, $3)} END {printf("]")}' | sed "s/,\]/\]/"`
   out=$out","
 
   # Last Error
