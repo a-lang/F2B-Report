@@ -99,8 +99,8 @@ do
 
   # Fail2Ban Report - Being attacked service by day
   #out=$out"\"F2B_SVC_DAY\":"`grep "Ban " $F2BLOG_ALL | awk -F'[:,[:space:]]+' '{print $9,$2}' | sort | uniq -c | awk 'BEGIN {printf("[")} {printf("[%s, \"%s\", \"%s\"],", $1, $2, $3)} END {printf("]")}' | sed "s/,\]/\]/"`
-  tmp1=`grep "Ban " $F2BLOG_ALL | awk -F'[:,[:space:]]+' '{print $9,$2}' | sort | uniq -c | sed -n '/ssh/p' | head -5`
-  tmp2=`grep "Ban " $F2BLOG_ALL | awk -F'[:,[:space:]]+' '{print $9,$2}' | sort | uniq -c | sed -n '/asterisk/p' | head -5`
+  tmp1=`grep "Ban " $F2BLOG_ALL | awk -F'[:,[:space:]]+' '{print $9,$2}' | sort | uniq -c | sed -n '/ssh/p' | tail -5`
+  tmp2=`grep "Ban " $F2BLOG_ALL | awk -F'[:,[:space:]]+' '{print $9,$2}' | sort | uniq -c | sed -n '/asterisk/p' | tail -5`
   out=$out"\"F2B_SVC_DAY\":"`echo -e "$tmp1\n$tmp2" | awk 'BEGIN {printf("[")} {printf("[%s, \"%s\", \"%s\"],", $1, $2, $3)} END {printf("]")}' | sed "s/,\]/\]/"`
   out=$out","
 
