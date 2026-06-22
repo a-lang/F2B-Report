@@ -1,5 +1,9 @@
 Fail2Ban Web Report
 ================
+
+> **🔄 This is the original version and is no longer maintained.**
+> For the modern rewrite with interactive charts, bilingual UI, dark/light themes, and multi-distro support, see → **[f2b-dashboard](https://github.com/a-lang/f2b-dashboard)**
+
 ![image](https://raw.githubusercontent.com/a-lang/F2B-Report/master/Screenshot.png)
 Requirement
 ------------
@@ -74,4 +78,8 @@ vi /var/www/html/welcome/.htindex.cfg
 ![image](https://raw.githubusercontent.com/a-lang/F2B-Report/master/Screenshot2.png)
 
 Hoping you enjoy it !
+
+Related Projects
+----------------
+* **[f2b-dashboard](https://github.com/a-lang/f2b-dashboard)** — A complete modern rewrite of this project. Interactive ECharts dashboard with bilingual UI (EN / 繁體中文), dark/light themes, world attack map, per-jail analysis, and mobile-responsive design. Supports Debian/Ubuntu, CentOS/RHEL, Alpine, and Arch.
 
